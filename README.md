@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=waving&color=gradient&height=280&section=header&text=CT%20Heart%20Segmentation&fontSize=70&animation=fadeIn&fontAlignY=38&desc=AI%20CUP%202025%20|%20Vibe%20Coding%20Solution&descSize=25&descAlignY=55" width="100%" />
+  <img src="https://github.com/BMS410Wind/AICUP2025-CT-Heart/blob/main/heart.png" width="50%" />
 
   <br />
 
