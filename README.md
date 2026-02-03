@@ -1,68 +1,61 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=waving&color=auto&height=250&section=header&text=AICUP%202025&fontSize=80&animation=fadeIn&fontAlignY=35" width="100%" />
+  <img src="https://capsule-render.vercel.app/render?type=waving&color=gradient&height=280&section=header&text=CT%20Heart%20Segmentation&fontSize=70&animation=fadeIn&fontAlignY=38&desc=AI%20CUP%202025%20|%20Vibe%20Coding%20Solution&descSize=25&descAlignY=55" width="100%" />
 
-  # 🫀 CT Heart Segmentation Pipeline
-  ### *The "Vibe Coding" Approach with Multi-Agent Systems*
+  <br />
 
-  <p align="center">
-    <a href="#-project-overview">Overview</a> •
-    <a href="#-system-architecture">Architecture</a> •
-    <a href="#-experimental-results">Results</a> •
-    <a href="#-quick-start">Quick Start</a> •
-    <a href="#-docker-deployment">Docker</a>
-  </p>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
+  <img src="https://img.shields.io/badge/nnU--Net-V2-008000?style=for-the-badge&logo=nvidia&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 
-  [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-  [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)](https://pytorch.org/)
-  [![nnU-Net](https://img.shields.io/badge/nnU--Net-V2-008000?style=flat-square&logo=nvidia&logoColor=white)](https://github.com/MIC-DKFZ/nnUNet)
-  [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-
-  <br/>
+  <br />
+  <hr />
 </div>
 
 ## 🌟 Project Overview
 
-本專案專注於 **AI CUP 2025 秋季賽 — 電腦斷層心臟肌肉影像分割競賽 (II)**。
-透過 **Multi-Agent 協作架構** 與 **nnU-Net** 深度學習框架，實現對心臟 CT 影像中微小結構的高精度自動分割。
+本專案是針對 **AI CUP 2025 秋季賽 — 電腦斷層心臟肌肉影像分割競賽 (II)** 的高效解決方案。
+我們首創將 **"Vibe Coding"** 開發哲學與 **Multi-Agent 協作架構** 結合，大幅提升了醫學影像處理的自動化程度與精確度。
 
-> [!IMPORTANT]
-> **本專案特色：** 結合了 **Vibe Coding** 的開發哲學，利用 AI 代理人自動化處理從預處理到報告生成的繁瑣工作流。
-
----
-
-## 🏗️ System Architecture
-
-我們將醫學分割任務拆解為四個核心代理人，形成一個閉環的 **Agentic Workflow**：
-
-
-
-| 🤖 Agent | 職責與描述 |
-| :--- | :--- |
-| **Preprocessing** | 執行 `NIfTI` 影像標準化、Windowing 調整及 Resampling。 |
-| **Segmentation** | 核心 `nnU-Net V2` 模型，執行 3D 卷積神經網絡推論。 |
-| **Post-Correction** | 形態學優化、邊界平滑及雜訊過濾。 |
-| **Reporter** | 自動化品質評估 (Dice/IoU) 與提交檔封裝。 |
+> [!TIP]
+> **Vibe Coding:** 核心開發邏輯由 AI 代理人輔助生成，專注於高效迭代與跨模組協同，解決醫學影像中複雜的類別不平衡問題。
 
 ---
 
-## 📊 Experimental Results
+## 🏗️ Multi-Agent Workflow
 
-目前模型在驗證集上的量化指標：
+系統由四個專業 AI Agents 組成，模擬專業醫師與放射科人員的協作流程：
 
-| Label | Structure | Dice Score | Status |
-| :---: | :--- | :---: | :--- |
-| 01 | **Myocardium (心肌)** | **0.9051** | 🟢 Optimal |
-| 02 | **Aortic Valve (主動脈瓣)** | **0.7530** | 🟡 Improving |
-| 03 | **Calcification (鈣化)** | **0.0000** | 🔴 In Progress |
+
+
+### 🤖 代理人職責說明
+1.  **Preprocessing Agent**: 自動解析 NIfTI 標籤，執行 Resampling 與 Windowing (窗寬窗位) 調整。
+2.  **Segmentation Agent**: 驅動核心 **nnU-Net V2**，針對心肌與瓣膜進行 3D 體素級推理。
+3.  **Post-Correction Agent**: 執行 3D 連通域分析與空洞填充，確保解剖學結構完整。
+4.  **Reporting Agent**: 自動檢核輸出格式，生成符合競賽要求的提交檔。
 
 ---
 
-## 🚀 Quick Start
+## 📊 Benchmarks
 
-### 🐍 Local Installation
+模型在驗證集 (Validation Set) 上的最新數據：
+
+| 🏥 Anatomical Structure | Metric (Dice) | Status |
+| :--- | :---: | :--- |
+| **Myocardium (心肌)** | `0.9051` | <img src="https://img.shields.io/badge/-Optimal-success?style=flat-square" /> |
+| **Aortic Valve (主動脈瓣)** | `0.7530` | <img src="https://img.shields.io/badge/-Fine--tuning-important?style=flat-square" /> |
+| **Calcification (鈣化)** | `In Progress` | <img src="https://img.shields.io/badge/-Under%20Dev-lightgrey?style=flat-square" /> |
+
+---
+
+## 🐳 Deployment & Usage
+
+### Dockerized Environment
+為了避免醫學影像庫 (CUDA/SimpleITK) 環境衝突，強烈建議使用 Docker：
+
 ```bash
-# Clone
-git clone [https://github.com/BMS410Wind/AICUP2025-CT-Heart.git](https://github.com/BMS410Wind/AICUP2025-CT-Heart.git) && cd AICUP2025-CT-Heart
+# 1. 快速啟動環境
+docker-compose up -d --build
 
-# Setup environment
-pip install -r requirements.txt
+# 2. 執行端到端分割流程 (All-in-one Agent Flow)
+docker exec -it aicup_container python main.py --mode run_all
