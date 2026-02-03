@@ -13,7 +13,7 @@
 ## 🌟 Project Overview
 
 本專案是針對 **AI CUP 2025 秋季賽 — 電腦斷層心臟肌肉影像分割競賽 (II)** 的高效解決方案。
-我們首創將 **"Vibe Coding"** 開發哲學與 **Multi-Agent 協作架構** 結合，大幅提升了醫學影像處理的自動化程度與精確度。
+使用 **"Vibe Coding"** 開發 **Multi-Agent 協作架構** ，完成醫學影像處理的半自動化流程。
 
 ---
 
@@ -24,7 +24,7 @@
 
 ### 🤖 代理人職責說明
 1.  **Preprocessing Agent**: 自動解析 NIfTI 標籤，執行 Resampling 與 Windowing (窗寬窗位) 調整。
-2.  **Segmentation Agent**: 驅動核心 **nnU-Net V2**，針對心肌與瓣膜進行 3D 體素級推理。
+2.  **Segmentation Agent**: 驅動核心 **nnU-Net V2**，針對心肌與瓣膜進行 3D voxel推理。
 3.  **Post-Correction Agent**: 執行 3D 連通域分析與空洞填充，確保解剖學結構完整。
 4.  **Reporting Agent**: 自動檢核輸出格式，生成符合競賽要求的提交檔。
 
