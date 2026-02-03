@@ -1,16 +1,33 @@
-code:
-1.Trainall 可用於訓練nnUnet模型 需要去AICUP下載資料集 並修改資料儲存位址 才可訓練
-2.predall 可用於預測 並產生繳交壓縮檔 其產生檔案可直接上傳AICUP
--------------
-data_split: 涵json檔案，用於區分訓練與驗證資料
--------------
-experiments: 訓練結果將存成log與jpg供使用者調整訓練策略，同時記錄最佳權重
--------------
-predictions: 產生預測結果並壓縮成zip檔案(由predall產生)
--------------
-data_diagnosis: 檢查train/val類別、每個類別的像素占比、建議可行方案
--------------
-requirements: 環境需求
--------------
-P.S. 操作環境: windows、local、monai:1.5.1 python:3.9 cuda version:13.0、3080GPU10G、i7 12700K CPU、48G RAM
+# AI CUP 2025: CT Heart Segmentation with Vibe Coding
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange)
+![nnU-Net](https://img.shields.io/badge/nnU--Net-V2-green)
+![Status](https://img.shields.io/badge/Status-Development-yellow)
+
+> **AI CUP 2025 秋季賽 — 電腦斷層心臟肌肉影像分割競賽 (II)**
+> An automated medical segmentation pipeline powered by **Multi-Agent Systems** and **nnU-Net**.
+
+## 📖 專案簡介 (Introduction)
+
+本專案是針對 2025 AI CUP 心臟 CT 影像分割競賽的解決方案。我們採用 **"Vibe Coding"** 方法論，設計了一套由 AI 驅動的**多代理人協作系統 (Multi-Agent System)**，將繁瑣的醫學影像處理流程自動化，以精確分割以下目標：
+
+1.  **全心臟肌肉 (Myocardium)** - (Class 1)
+2.  **主動脈瓣膜 (Aortic Valve)** - (Class 2)
+3.  **鈣化區域 (Calcification)** - (Class 3)
+
+## 🏗️ 系統架構 (System Architecture)
+
+本系統打破傳統單一腳本的限制，將任務拆解為四個專門化的 Agents：
+
+```mermaid
+graph TD
+    Input[CT Images .nii.gz] --> Pre[🤖 Preprocessing Agent]
+    Pre --> Seg[🧠 Segmentation Agent]
+    Seg --> Post[🔧 Postprocessing Agent]
+    Post --> Report[📊 Reporting Agent]
+    Report --> Output[Submission File]
+    
+    Database[(📚 RAG Knowledge Base)] -.-> Pre
+    Database -.-> Seg
+    Database -.-> Post
