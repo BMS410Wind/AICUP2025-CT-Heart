@@ -23,10 +23,10 @@
 
 
 ### 🤖 代理人職責說明
-1.  **Preprocessing Agent**: 自動解析 NIfTI 標籤，執行 Resampling 與 Windowing (窗寬窗位) 調整。
-2.  **Segmentation Agent**: 驅動核心 **nnU-Net V2**，針對心肌與瓣膜進行 3D voxel推理。
-3.  **Post-Correction Agent**: 執行 3D 連通域分析與空洞填充，確保解剖學結構完整。
-4.  **Reporting Agent**: 自動檢核輸出格式，生成符合競賽要求的提交檔。
+1.  **Preprocessing Agent**: 負責將原始CT影像(.nii.gz格式)轉換為模型可處理的標準化數據格式,確保數據品質和一致性。
+2.  **Segmentation Agent**: 使用3D U-Net模型對心臟CT影像進行精準分割,識別心臟肌肉(Segment_1)、主動脈瓣膜(Segment_2)和鈣化區域(Segment_3)。
+3.  **Post-Correction Agent**: 優化分割結果的品質,修正錯誤預測,並將輸出格式化為競賽要求的.nii.gz檔案。
+4.  **Reporting Agent**: 生成綜合評估報告,確保提交檔案符合競賽格式。
 
 ---
 
